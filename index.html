@@ -422,6 +422,36 @@
         });
       },
     });
+
+    // Custom cursor with lerp lag
+    (function () {
+      const cursor = document.getElementById('cursor');
+      if (!cursor) return;
+
+      let mouseX = window.innerWidth / 2;
+      let mouseY = window.innerHeight / 2;
+      let cx = mouseX, cy = mouseY;
+
+      document.addEventListener('mousemove', e => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+
+      // Expand on hoverable elements
+      const hoverables = 'a, button, [role="button"]';
+      document.querySelectorAll(hoverables).forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('expanded'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('expanded'));
+      });
+
+      function loop() {
+        cx += (mouseX - cx) * 0.15;
+        cy += (mouseY - cy) * 0.15;
+        cursor.style.transform = `translate(${cx - 4}px, ${cy - 4}px)`;
+        requestAnimationFrame(loop);
+      }
+      loop();
+    })();
   </script>
 </body>
 </html>
