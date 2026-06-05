@@ -62,7 +62,6 @@
       width: 40px; height: 40px;
       background: transparent;
       border: 1px solid rgba(240,237,232,0.4);
-      margin-left: -16px; margin-top: -16px;
     }
 
     /* Nav scroll state */
@@ -376,6 +375,8 @@
       const text = headline.textContent.trim();
       headline.innerHTML = text.split(' ').map(w => `<span class="inline-block">${w}</span>`).join(' ');
 
+      gsap.set('#hero-sub, #hero-tags', { y: 24 });
+
       const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
 
       tl.from('#hero-headline span', {
@@ -447,7 +448,8 @@
       function loop() {
         cx += (mouseX - cx) * 0.15;
         cy += (mouseY - cy) * 0.15;
-        cursor.style.transform = `translate(${cx - 4}px, ${cy - 4}px)`;
+        const offset = cursor.classList.contains('expanded') ? 20 : 4;
+        cursor.style.transform = `translate(${cx - offset}px, ${cy - offset}px)`;
         requestAnimationFrame(loop);
       }
       loop();
