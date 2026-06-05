@@ -162,7 +162,84 @@
 </section>
 
 <div class="section-divider mx-6 md:mx-12"></div>
-  <!-- WORK placeholder -->
+  <!-- SELECTED WORK -->
+<section id="work" class="px-6 md:px-12 py-24 md:py-32">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Section header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-4">
+      <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">Selected Work</h2>
+      <p class="text-muted text-sm max-w-xs">Three client projects, built and shipped.</p>
+    </div>
+
+    <!-- Cards grid -->
+    <div class="flex flex-col gap-4">
+
+      <!-- Card 1: Riopack (full width) -->
+      <div class="project-card rounded-2xl overflow-hidden border border-border bg-surface group">
+        <div class="card-media">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="videos/riopack.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="flex items-center justify-between px-6 py-5 border-t border-border">
+          <div>
+            <div class="text-xs text-muted uppercase tracking-widest mb-1.5">Corporate · Print &amp; Packaging</div>
+            <div class="text-base font-medium text-primary">Riopack Co.</div>
+          </div>
+          <span class="arrow-link text-muted text-sm">
+            <span>View project</span>
+            <span>→</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Bottom row: Thryve (left, wider) + ACPP (right) -->
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+
+        <!-- Card 2: Thryve (3/5 width) -->
+        <div class="project-card rounded-2xl overflow-hidden border border-border bg-surface group md:col-span-3">
+          <div class="card-media">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="videos/thryve.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="flex items-center justify-between px-6 py-5 border-t border-border">
+            <div>
+              <div class="text-xs text-muted uppercase tracking-widest mb-1.5">Therapy · Healthcare</div>
+              <div class="text-base font-medium text-primary">Thryve Therapy</div>
+            </div>
+            <span class="arrow-link text-muted text-sm">
+              <span>View project</span>
+              <span>→</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Card 3: ACPP (2/5 width) -->
+        <div class="project-card rounded-2xl overflow-hidden border border-border bg-surface group md:col-span-2">
+          <div class="card-media">
+            <img src="images/acpp-hero.png" alt="ACPP — American Center for Psychiatry &amp; Psychology" loading="lazy" />
+          </div>
+          <div class="flex items-center justify-between px-6 py-5 border-t border-border">
+            <div>
+              <div class="text-xs text-muted uppercase tracking-widest mb-1.5">Healthcare · Web App</div>
+              <div class="text-base font-medium text-primary">ACPP Egypt</div>
+            </div>
+            <span class="arrow-link text-muted text-sm">
+              <span>View project</span>
+              <span>→</span>
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider mx-6 md:mx-12"></div>
+  <!-- ABOUT placeholder -->
   <!-- ABOUT placeholder -->
   <!-- STATS placeholder -->
   <!-- CONTACT placeholder -->
@@ -207,6 +284,19 @@
       .to('#hero-sub',  { opacity: 1, y: 0, duration: 0.5 }, '-=0.2')
       .to('#hero-tags', { opacity: 1, y: 0, duration: 0.4 }, '-=0.3');
     })();
+
+    // Project cards stagger in on scroll
+    gsap.from('.project-card', {
+      scrollTrigger: {
+        trigger: '#work',
+        start: 'top 75%',
+      },
+      y: 50,
+      opacity: 0,
+      stagger: 0.12,
+      duration: 0.8,
+      ease: 'power2.out',
+    });
   </script>
 </body>
 </html>
