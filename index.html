@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Omar Alaa — Web Designer & Developer</title>
+  <meta name="description" content="Freelance web designer and developer based in Cairo, Egypt. I build websites for brands, clinics, and founders." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary:  '#f0ede8',
+            muted:    '#6b6b6b',
+            surface:  '#0f0f0f',
+            border:   '#1c1c1c',
+            bg:       '#080808',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    * { cursor: none; }
+
+    body {
+      background-color: #080808;
+      color: #f0ede8;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Custom cursor */
+    .cursor {
+      position: fixed;
+      top: 0; left: 0;
+      width: 8px; height: 8px;
+      background: #f0ede8;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      will-change: transform;
+      transition: width 0.2s, height 0.2s, background 0.2s;
+    }
+    .cursor.expanded {
+      width: 40px; height: 40px;
+      background: transparent;
+      border: 1px solid rgba(240,237,232,0.4);
+      margin-left: -16px; margin-top: -16px;
+    }
+
+    /* Nav scroll state */
+    nav.scrolled {
+      background: rgba(8,8,8,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid #1c1c1c;
+    }
+
+    /* Hide scrollbar */
+    ::-webkit-scrollbar { display: none; }
+
+    /* Project card media */
+    .card-media { aspect-ratio: 16/9; overflow: hidden; }
+    .card-media video,
+    .card-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .project-card:hover .card-media video,
+    .project-card:hover .card-media img { transform: scale(1.03); }
+
+    /* Arrow hover */
+    .arrow-link { display: inline-flex; align-items: center; gap: 6px; transition: gap 0.3s; }
+    .project-card:hover .arrow-link { gap: 12px; }
+
+    /* Section divider */
+    .section-divider { border-top: 1px solid #1c1c1c; }
+  </style>
+</head>
+<body class="bg-bg text-primary font-sans">
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+
+  <!-- NAV placeholder -->
+  <!-- HERO placeholder -->
+  <!-- WORK placeholder -->
+  <!-- ABOUT placeholder -->
+  <!-- STATS placeholder -->
+  <!-- CONTACT placeholder -->
+  <!-- FOOTER placeholder -->
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+  </script>
+</body>
+</html>
