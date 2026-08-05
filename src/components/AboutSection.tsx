@@ -1,7 +1,7 @@
 const TRAITS = [
   { n: "01", label: "Fast delivery" },
-  { n: "02", label: "Clean, maintainable code" },
-  { n: "03", label: "Production-ready from launch" },
+  { n: "02", label: "Fully customizable" },
+  { n: "03", label: "Designed to turn visitors into clients" },
 ];
 
 export function AboutSection() {
@@ -10,13 +10,13 @@ export function AboutSection() {
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 md:gap-24 items-start">
         <div>
           <h2 className="font-display text-3xl md:text-[2.75rem] font-medium leading-[1.1] tracking-tight mb-6 bg-gradient-to-r from-sunset-mauve via-sunset-coral to-sunset-rose bg-clip-text text-transparent">
-            I build websites that work from day one.
+            A site that works for your business.
           </h2>
           <p className="text-muted-foreground text-base leading-relaxed">
-            I'm Omar Alaa, a freelance web designer and developer based in Cairo, Egypt. I'm studying MICT and
-            Computer Science &amp; AI at the American University in Cairo. I work with real clients, from mental
-            health clinics to manufacturing companies, to ship production-ready websites that look good and
-            actually function.
+            I'm Omar Alaa, a freelance web designer and developer based in Cairo, Egypt. I build for businesses
+            that need results, clinics that need bookings, manufacturers that need credibility, founders that need
+            to launch fast. Every project is built to be fast, easy to maintain, and ready for real customers on
+            day one.
           </p>
         </div>
 

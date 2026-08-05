@@ -15,6 +15,19 @@
 
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600,700&f[]=cabinet-grotesk@500,700,800&display=swap" rel="stylesheet" />
+  <script>
+    // Applies the stored/default theme before first paint to avoid a
+    // flash of the wrong theme. Defaults to dark (the site's original
+    // look) unless the visitor has explicitly toggled to light before.
+    (function () {
+      try {
+        var stored = localStorage.getItem("theme");
+        if (stored !== "light") document.documentElement.classList.add("dark");
+      } catch (e) {
+        document.documentElement.classList.add("dark");
+      }
+    })();
+  </script>
 </head>
 <body>
   <div id="root"></div>

@@ -25,6 +25,15 @@ export function ContactSection() {
             WhatsApp
             <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
           </a>
+          <a
+            href="https://www.linkedin.com/in/omar-alaa-6806501b9/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-sunset-coral text-sm border-b border-transparent hover:border-accent/50 transition-colors pb-0.5 group"
+          >
+            LinkedIn
+            <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </a>
         </div>
       </div>
     </section>

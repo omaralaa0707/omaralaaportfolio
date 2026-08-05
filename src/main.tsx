@@ -1,5 +1,6 @@
 import { createRoot } from "react-dom/client";
 import App from "@/App";
+import { ThemeProvider } from "@/hooks/use-theme";
 import "@/index.css";
 
 // No <StrictMode> wrapper: the animated-shader-hero component owns an
@@ -8,4 +9,8 @@ import "@/index.css";
 // effect invocation - it tears the GL program down and rebuilds it twice on
 // mount, which leaves the canvas blank in dev (confirmed the production
 // build renders correctly either way; this only affects `npm run dev`).
-createRoot(document.getElementById("root")!).render(<App />);
+createRoot(document.getElementById("root")!).render(
+  <ThemeProvider>
+    <App />
+  </ThemeProvider>,
+);

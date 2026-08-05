@@ -45,7 +45,7 @@ export function ProjectCard({ href, videoSrc, imageSrc, eyebrow, title, classNam
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "project-card rounded-[28px] overflow-hidden border border-border bg-surface group flex flex-col h-full",
+        "project-card rounded-[28px] overflow-hidden border border-border bg-card group flex flex-col h-full",
         className,
       )}
     >

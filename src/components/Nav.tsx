@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -23,24 +24,27 @@ export function Nav() {
         </a>
 
         <div className="hidden md:flex items-center gap-8">
-          <a href="#work" className="text-muted-foreground hover:text-primary transition-colors text-sm tracking-wide">
-            Work
-          </a>
-          <a href="#about" className="text-muted-foreground hover:text-primary transition-colors text-sm tracking-wide">
-            About
-          </a>
-          <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors text-sm tracking-wide">
-            Contact
-          </a>
+          {["Work", "About", "Contact"].map((label) => (
+            <a
+              key={label}
+              href={`#${label.toLowerCase()}`}
+              className="text-muted-foreground hover:text-primary transition-colors text-sm tracking-wide"
+            >
+              {label}
+            </a>
+          ))}
         </div>
 
-        <a
-          href="#contact"
-          className="btn-press hidden md:inline-flex items-center gap-2 bg-sunset-mauve/10 border border-sunset-mauve/30 text-primary backdrop-blur-sm text-sm px-5 py-2.5 rounded-full hover:bg-sunset-mauve/20 hover:border-sunset-mauve/50 transition-colors duration-200 group"
-        >
-          Get in touch
-          <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-        </a>
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <a
+            href="#contact"
+            className="btn-press hidden md:inline-flex items-center gap-2 bg-sunset-mauve/10 border border-sunset-mauve/30 text-primary backdrop-blur-sm text-sm px-5 py-2.5 rounded-full hover:bg-sunset-mauve/20 hover:border-sunset-mauve/50 transition-colors duration-200 group"
+          >
+            Get in touch
+            <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </a>
+        </div>
       </div>
     </nav>
   );

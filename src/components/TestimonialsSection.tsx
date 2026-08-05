@@ -35,7 +35,7 @@ export function TestimonialsSection() {
           {TESTIMONIALS.map((t) => (
             <div
               key={t.name}
-              className="rounded-[28px] border border-border bg-surface p-8 flex flex-col gap-6 min-h-[220px] justify-between"
+              className="rounded-[28px] border border-border bg-card p-8 flex flex-col gap-6 min-h-[220px] justify-between"
             >
               <Quote className="w-6 h-6 text-sunset-coral/70" strokeWidth={1.5} />
               <p className="text-sm leading-relaxed text-primary/90">{t.quote}</p>

@@ -3,7 +3,29 @@
 @tailwind utilities;
 
 @layer base {
+  /* Light theme (default) */
   :root {
+    --background: 30 20% 97%;
+    --foreground: 0 0% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 30 15% 93%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 30 12% 93%;
+    --muted-foreground: 0 0% 38%;
+    --accent: 6 60% 48%;
+    --accent-foreground: 0 0% 100%;
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 6 60% 48%;
+    --section-alt: 30 20% 94%;
+    --radius: 0.75rem;
+  }
+
+  /* Dark theme (the site's original look) - toggled via .dark on <html> */
+  .dark {
     --background: 0 0% 3%;
     --foreground: 40 20% 94%;
     --card: 0 0% 6%;
@@ -19,7 +41,7 @@
     --border: 0 0% 11%;
     --input: 0 0% 11%;
     --ring: 6 55% 60%;
-    --radius: 0.75rem;
+    --section-alt: 0 0% 4%;
   }
 }
 
@@ -28,7 +50,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-bg text-primary font-sans antialiased;
+    @apply bg-background text-primary font-sans antialiased transition-colors duration-300;
     position: relative;
   }
   h1, h2, .font-display { font-family: "Cabinet Grotesk", "General Sans", sans-serif; }
@@ -55,7 +77,7 @@
   z-index: 0;
   pointer-events: none;
   opacity: 0.5;
-  background-image: radial-gradient(rgba(240, 237, 232, 0.09) 1px, transparent 1px);
+  background-image: radial-gradient(hsl(var(--foreground) / 0.09) 1px, transparent 1px);
   background-size: 28px 28px;
   -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 0%, transparent 75%);
   mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 0%, transparent 75%);
@@ -80,10 +102,10 @@ a:focus-visible, button:focus-visible {
 }
 
 .nav-scrolled {
-  background: rgba(8, 8, 8, 0.85);
+  background: hsl(var(--background) / 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid #1c1c1c;
+  border-bottom: 1px solid hsl(var(--border));
 }
 
 ::-webkit-scrollbar { display: none; }
@@ -123,7 +145,7 @@ a:focus-visible, button:focus-visible {
 .arrow-link { display: inline-flex; align-items: center; gap: 6px; transition: gap 0.3s; }
 .project-card:hover .arrow-link { gap: 12px; }
 
-.section-divider { border-top: 1px solid #1c1c1c; }
+.section-divider { border-top: 1px solid hsl(var(--border)); }
 
 /* Marquee transition band between the hero and the content below */
 .marquee-viewport {
@@ -150,7 +172,7 @@ a:focus-visible, button:focus-visible {
 #hero-shader { position: relative; }
 
 #work, #contact { background: linear-gradient(180deg, transparent, rgba(169, 126, 163, 0.03) 50%, transparent); }
-#about, #testimonials { background: #0a0a0c; }
+#about, #testimonials { background: hsl(var(--section-alt)); }
 
 /* ---- animated-shader-hero.tsx keyframes (extracted from its `style jsx` block:
    styled-jsx is a Next.js-only mechanism and isn't available in this Vite setup) ---- */

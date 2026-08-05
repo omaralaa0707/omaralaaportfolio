@@ -33,9 +33,9 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // portfolio-specific tokens (kept from the static-site design)
-        bg: "#080808",
-        surface: "#0f0f0f",
+        // slightly-offset section background (About, Testimonials) - distinct
+        // from `background` in both light and dark themes
+        "section-alt": "hsl(var(--section-alt))",
         // sunset reference palette (dusk sky photo): deep blue -> mauve -> coral -> terracotta
         sunset: {
           blue: "#2f6690",
